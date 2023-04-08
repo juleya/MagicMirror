@@ -127,27 +127,27 @@ let config = {
 				   }
 			   }
 	   },
-	   {
-			module: 'MMM-Motion-Detection',
-			config: {
-				// force the use of a usb webcam on raspberry pi
-				useUSBCam: true,
-				// recognition interval in seconds (smaller number = faster but more CPU intensive!)
-				interval: 3,
-				// Notificaiton Delay after movement stops being sensed (in seconds).
-				motionStopDelay: 120,
-				// Threshold for motion detection, smaller numbers means more sensitive
-				detectionThreshold: 1000,
-				// Turn off display when no motion is detected.
-				turnOffDisplay: true
-			}
-		}, 
+	//    {
+	// 		module: 'MMM-Motion-Detection',
+	// 		config: {
+	// 			// force the use of a usb webcam on raspberry pi
+	// 			useUSBCam: true,
+	// 			// recognition interval in seconds (smaller number = faster but more CPU intensive!)
+	// 			interval: 3,
+	// 			// Notificaiton Delay after movement stops being sensed (in seconds).
+	// 			motionStopDelay: 120,
+	// 			// Threshold for motion detection, smaller numbers means more sensitive
+	// 			detectionThreshold: 1000,
+	// 			// Turn off display when no motion is detected.
+	// 			turnOffDisplay: true
+	// 		}
+	// 	}, 
 	   
 		{
 			module: 'MMM-pages',
 			config: {
 				modules:
-				[["cheshire", "initial-text"], ["eat", "drink"], ["eat"], ["drink"], ["castle", "teaparty"], ["castle"], ["teaparty"],
+				[["keyboard"], ["keyboard", "cheshire", "initial-text"], ["eat", "drink"], ["eat"], ["drink"], ["castle", "teaparty"], ["castle"], ["teaparty"],
 				["cheshire"]],
 				// fixed: ["MMM-Sounds"],
 				hiddenPages: {
@@ -193,6 +193,31 @@ let config = {
 		// 	}
 		// },
 		{
+            module: 'MMM-KeyBindings',
+            config: {
+				evdev: {enabled: false},
+				enableKeyboard: true,
+				actions: [{
+					key: "a",
+					state: "KEY_PRESSED",
+					instance: "SERVER",
+					mode: "DEFAULT",
+					notification: "KEYBOARD_INPUT",
+					payload: {key: "a" }
+				  }]
+            }
+        },
+		{
+			module: "MMM-Keyboard",
+			classes: "keyboard",
+			position: "fullscreen_above",
+			config: {
+				startWithNumbers: false,
+				startUppercase: false,
+				debug: false
+			}
+		},
+		{
 			module: 'MMM-NotificationTrigger',
 			//This module works in Background, so you don't need to describe `position`.
 			config: {
@@ -214,7 +239,8 @@ let config = {
 				//   },
 				  fires: [ // Array of fires. You can enable multi-firing with one trigger.
 					{
-					  fire: "SELFIE_SHOOT", //REQUIRED
+					  fire: "FJADLSJ",
+					  //fire: "SELFIE_SHOOT", //REQUIRED
 					  payload: (payload) => { //OPTIONAL. transform received payload to what your target module wants.
 						return {
 							shootCountdown: 5,

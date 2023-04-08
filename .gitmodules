@@ -28,3 +28,9 @@
 [submodule "modules/MMM-Motion-Detection"]
 	path = modules/MMM-Motion-Detection
 	url = https://github.com/dmcinnes/MMM-Motion-Detection
+[submodule "modules/MMM-KeyBindings"]
+	path = modules/MMM-KeyBindings
+	url = https://github.com/shbatm/MMM-KeyBindings
+[submodule "modules/MMM-Keyboard"]
+	path = modules/MMM-Keyboard
+	url = https://github.com/lavolp3/MMM-Keyboard
