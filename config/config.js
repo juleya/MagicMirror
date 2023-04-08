@@ -37,73 +37,238 @@ let config = {
 	units: "metric",
 
 	modules: [
+		// {
+		// 	module: 'MMM-Sounds',
+		// 	config: {
+		// 		startupSound:   'wobble.wav',
+		// 		quietTimeStart: '23:00',      // 11pm
+		// 		quietTimeEnd:   '07:00'       // 7am
+		// 	}
+		// },
 		{
-			module: "alert",
-		},
-		{
-			module: "updatenotification",
-			position: "top_bar"
-		},
-		{
-			module: "clock",
-			position: "top_left"
-		},
-		{
-			module: "calendar",
-			header: "US Holidays",
-			position: "top_left",
+			module: "MMM-SimpleLogo",
+			position: "middle_center",
+			classes: 'cheshire',
 			config: {
-				calendars: [
+				fileUrl: 'modules/MMM-SimpleLogo/public/cheshire.gif',
+				width: '100%',
+				position: 'center',
+				text: '',
+			}
+		},
+		{
+			module: "MMM-SimpleLogo",
+			position: "middle_center",
+			classes: 'eat',
+			config: {
+				fileUrl: 'modules/MMM-SimpleLogo/public/eatme.png',
+				width: '100%',
+				position: 'left',
+				text: '',
+			}
+		},
+		{
+			module: "MMM-SimpleLogo",
+			position: "middle_center",
+			classes: 'drink',
+			config: {
+				fileUrl: 'modules/MMM-SimpleLogo/public/drinkme.png',
+				width: '100%',
+				position: 'right',
+				text: '',
+			}
+		},
+		{
+			module: "MMM-SimpleLogo",
+			position: "middle_center",
+			classes: 'castle',
+			config: {
+				fileUrl: 'modules/MMM-SimpleLogo/public/castle.png',
+				width: '100%',
+				position: 'left',
+				text: '',
+			}
+		},
+		{
+			module: "MMM-SimpleLogo",
+			position: "middle_center",
+			classes: 'teaparty',
+			config: {
+				fileUrl: 'modules/MMM-SimpleLogo/public/teaparty.png',
+				width: '100%',
+				position: 'right',
+				text: '',
+			}
+		},
+		{
+			disabled: false,
+			module: "MMM-Selfieshot",
+			config: {}
+		},
+		{
+			module: 'MMM-SimpleText',
+			classes: 'initial-text',
+			position: 'bottom_center',
+			config: {
+				   text: {
+					 'value': 'Hello World!'
+				   },
+				   fontURL: {
+					 'value': 'Tahoma, Geneva, sans-serif'
+				   },
+				   fontSize: {
+					 'value': 'xx-large'
+				   },
+				   fontStyle: {
+					 'value': 'italic'
+				   },
+				   color: {
+					 'value': '#FFFFFF'
+				   }
+			   }
+	   },
+	   {
+			module: 'MMM-Motion-Detection',
+			config: {
+				// force the use of a usb webcam on raspberry pi
+				useUSBCam: true,
+				// recognition interval in seconds (smaller number = faster but more CPU intensive!)
+				interval: 3,
+				// Notificaiton Delay after movement stops being sensed (in seconds).
+				motionStopDelay: 120,
+				// Threshold for motion detection, smaller numbers means more sensitive
+				detectionThreshold: 1000,
+				// Turn off display when no motion is detected.
+				turnOffDisplay: true
+			}
+		}, 
+	   
+		{
+			module: 'MMM-pages',
+			config: {
+				modules:
+				[["cheshire", "initial-text"], ["eat", "drink"], ["eat"], ["drink"], ["castle", "teaparty"], ["castle"], ["teaparty"],
+				["cheshire"]],
+				// fixed: ["MMM-Sounds"],
+				hiddenPages: {
+					"cat": ["cheshire"],
+					"eatordrink": ["eat", "drink"],
+					"selecteat": ["eat"],
+					"selectdrink": ["drink"],
+					"castleortea": ["castle", "teaparty"],
+					"selectcastle": ["castle"],
+					"selecttea": ["teaparty"],
+				},
+			}
+		},
+		// {
+		// 	module: 'MMM-Buttons',
+		// 	config: {
+		// 		buttons: [
+		// 			{
+		// 				pin: 25,
+		// 				name: "left",
+		// 				longPress: {
+		// 					notification: "LEFT",
+		// 					payload: {}
+		// 				},
+		// 				shortPress: {
+		// 					notification: "LEFT",
+		// 					payload: {}
+		// 				}
+		// 			},
+		// 			{
+		// 				pin: 24,
+		// 				name: "right",
+		// 				longPress: {
+		// 					notification: "RIGHT",
+		// 					payload: {}
+		// 				},
+		// 				shortPress: {
+		// 					notification: "RIGHT",
+		// 					payload: {}
+		// 				}
+		// 			}
+		// 		]
+		// 	}
+		// },
+		{
+			module: 'MMM-NotificationTrigger',
+			//This module works in Background, so you don't need to describe `position`.
+			config: {
+			  useWebhook: false, // If you want to activate webhook as Notification emitter, set true. (eg. IFTTT)
+			  triggers:[ // Array of triggers.
+				{
+				  trigger: "MAX_PAGES_CHANGED", //REQUIRED
+				//   triggerSenderFilter: (sender) => { //OPTIONAL should return true or false
+				// 	if (sender == "....") {
+				// 	  return true
+				// 	}
+				// 	return false
+				//   },
+				//   triggerPayloadFilter: (payload) => { //OPTIONAL should return true or false
+				// 	if (typeof payload.value !== 'undefined' && payload.value > 0) {
+				// 	  return true
+				// 	}
+				// 	return false
+				//   },
+				  fires: [ // Array of fires. You can enable multi-firing with one trigger.
 					{
-						symbol: "calendar-check",
-						url: "webcal://www.calendarlabs.com/ical-calendar/ics/76/US_Holidays.ics"
-					}
-				]
-			}
-		},
-		{
-			module: "compliments",
-			position: "lower_third"
-		},
-		{
-			module: "weather",
-			position: "top_right",
-			config: {
-				weatherProvider: "openweathermap",
-				type: "current",
-				location: "New York",
-				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: "YOUR_OPENWEATHER_API_KEY"
-			}
-		},
-		{
-			module: "weather",
-			position: "top_right",
-			header: "Weather Forecast",
-			config: {
-				weatherProvider: "openweathermap",
-				type: "forecast",
-				location: "New York",
-				locationID: "5128581", //ID from http://bulk.openweathermap.org/sample/city.list.json.gz; unzip the gz file and find your city
-				apiKey: "YOUR_OPENWEATHER_API_KEY"
-			}
-		},
-		{
-			module: "newsfeed",
-			position: "bottom_bar",
-			config: {
-				feeds: [
-					{
-						title: "New York Times",
-						url: "https://rss.nytimes.com/services/xml/rss/nyt/HomePage.xml"
-					}
-				],
-				showSourceTitle: true,
-				showPublishDate: true,
-				broadcastNewsFeeds: true,
-				broadcastNewsUpdates: true
-			}
-		},
+					  fire: "SELFIE_SHOOT", //REQUIRED
+					  payload: (payload) => { //OPTIONAL. transform received payload to what your target module wants.
+						return {
+							shootCountdown: 5,
+							displayResult: true,
+							playShutter: true,
+							displayCountdown: true,
+						  }
+					  },
+					  delay: 1000, //OPTIONAL, if this is set, your outgoing notification will be fired after delay.
+					//   exec: "ls -l" //OPTIONAL, if exists, this script will be executed, and the result will be returned with "OUTGOING_NOTIFICATION_RESULT" and payload.  Can also be specified as a function which accepts the payload as an argument and returns the command to execute.
+					},
+				  ],
+				},
+				{
+					trigger: "LEFT",
+					fires: [
+						{
+							fire: "PAGE_INCREMENT", 
+							payload: (payload) => {
+								return 1;
+							}
+						},
+						{
+							fire: "PAGE_INCREMENT",
+							payload: (payload) => {
+								return 2;
+							},
+							delay: 2000,
+						}
+					]
+				},
+				{
+					trigger: "RIGHT",
+					fires: [
+						{
+							fire: "PAGE_INCREMENT", 
+							payload: (payload) => {
+								return 2;
+							}
+						}, 
+						{
+							fire: "PAGE_INCREMENT",
+							payload: (payload) => {
+								return 1;
+							},
+							delay: 2000,
+						}
+
+					]
+				}
+			  ]
+			},
+		  },		  
+		
 	]
 };
 

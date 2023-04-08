@@ -1,0 +1,30 @@
+[submodule "modules/MMM-EyeCandy"]
+	path = modules/MMM-EyeCandy
+	url = https://github.com/mykle1/MMM-EyeCandy
+[submodule "modules/MMM-SimpleLogo"]
+	path = modules/MMM-SimpleLogo
+	url = https://github.com/frdteknikelektro/MMM-SimpleLogo
+[submodule "modules/MMM-Sounds"]
+	path = modules/MMM-Sounds
+	url = https://github.com/jc21/MMM-Sounds
+[submodule "modules/MMM-pages"]
+	path = modules/MMM-pages
+	url = https://github.com/edward-shen/MMM-pages
+[submodule "modules/MMM-NotificationTrigger"]
+	path = modules/MMM-NotificationTrigger
+	url = https://github.com/MMRIZE/MMM-NotificationTrigger
+[submodule "modules/MMM-Selfieshot"]
+	path = modules/MMM-Selfieshot
+	url = https://github.com/BrianHepler/MMM-Selfieshot
+[submodule "modules/MMM-Buttons"]
+	path = modules/MMM-Buttons
+	url = https://github.com/Jopyth/MMM-Buttons
+[submodule "modules/MMM-SimpleText"]
+	path = modules/MMM-SimpleText
+	url = https://github.com/SaltyRiver/MMM-SimpleText
+[submodule "modules/MMM-PIR-Sensor"]
+	path = modules/MMM-PIR-Sensor
+	url = https://github.com/paviro/MMM-PIR-Sensor
+[submodule "modules/MMM-Motion-Detection"]
+	path = modules/MMM-Motion-Detection
+	url = https://github.com/dmcinnes/MMM-Motion-Detection
