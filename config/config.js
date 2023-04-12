@@ -102,6 +102,7 @@ let config = {
 		},
 		{
 			disabled: false,
+			classes: "photo",
 			module: "MMM-Selfieshot",
 			config: {}
 		},
@@ -127,6 +128,28 @@ let config = {
 				   }
 			   }
 	   },
+	   {
+			module: 'MMM-SimpleText',
+			classes: 'email',
+			position: 'bottom_center',
+			config: {
+				text: {
+					'value': 'Hello World!'
+				  },
+				  fontURL: {
+					'value': 'Tahoma, Geneva, sans-serif'
+				  },
+				  fontSize: {
+					'value': 'xx-large'
+				  },
+				  fontStyle: {
+					'value': 'italic'
+				  },
+				  color: {
+					'value': '#FFFFFF'
+				  }
+			}
+	   },
 	//    {
 	// 		module: 'MMM-Motion-Detection',
 	// 		config: {
@@ -147,7 +170,7 @@ let config = {
 			module: 'MMM-pages',
 			config: {
 				modules:
-				[["keyboard"], ["keyboard", "cheshire", "initial-text"], ["eat", "drink"], ["eat"], ["drink"], ["castle", "teaparty"], ["castle"], ["teaparty"],
+				[["menu", "email", "keybindings", "keyboard"], ["keyboard", "keybindings"], ["keyboard", "cheshire", "initial-text"], ["eat", "drink"], ["eat"], ["drink"], ["castle", "teaparty"], ["castle"], ["teaparty"],
 				["cheshire"]],
 				// fixed: ["MMM-Sounds"],
 				hiddenPages: {
@@ -194,29 +217,44 @@ let config = {
 		// },
 		{
             module: 'MMM-KeyBindings',
+			classes: "keybindings",
             config: {
 				evdev: {enabled: false},
 				enableKeyboard: true,
-				actions: [{
-					key: "a",
-					state: "KEY_PRESSED",
-					instance: "SERVER",
-					mode: "DEFAULT",
-					notification: "KEYBOARD_INPUT",
-					payload: {key: "a" }
-				  }]
+				handleKeys: ['k'],
+				// actions: [{
+				// 	key: "a",
+				// 	state: "KEY_PRESSED",
+				// 	instance: "SERVER",
+				// 	mode: "DEFAULT",
+				// 	notification: "LETTER",
+				// 	payload: {key: "a" }
+				//   }]
             }
         },
 		{
+			disabled: false,
 			module: "MMM-Keyboard",
 			classes: "keyboard",
-			position: "fullscreen_above",
+			position: "middle_center",
 			config: {
 				startWithNumbers: false,
 				startUppercase: false,
+				alwaysShow: true,
 				debug: false
 			}
 		},
+		{
+            module: 'MMM-OnScreenMenu',
+            position: 'bottom_right',
+			classes: "menu",
+            /* Valid positions: 'top_right', 'top_left', 'bottom_right', 'bottom_left' */
+            config: {
+                touchMode: false,
+                enableKeyboard: true,
+                // ... see more options below
+            }
+        },
 		{
 			module: 'MMM-NotificationTrigger',
 			//This module works in Background, so you don't need to describe `position`.
@@ -239,7 +277,7 @@ let config = {
 				//   },
 				  fires: [ // Array of fires. You can enable multi-firing with one trigger.
 					{
-					  fire: "FJADLSJ",
+					  fire: "asdjfajs",
 					  //fire: "SELFIE_SHOOT", //REQUIRED
 					  payload: (payload) => { //OPTIONAL. transform received payload to what your target module wants.
 						return {
@@ -252,6 +290,16 @@ let config = {
 					  delay: 1000, //OPTIONAL, if this is set, your outgoing notification will be fired after delay.
 					//   exec: "ls -l" //OPTIONAL, if exists, this script will be executed, and the result will be returned with "OUTGOING_NOTIFICATION_RESULT" and payload.  Can also be specified as a function which accepts the payload as an argument and returns the command to execute.
 					},
+					{
+						fire: "KEYBOARD",
+						payload: (payload) => {
+							return {
+								key: "uniqueKey",
+								style: "default"
+							}
+						},
+						delay: 500,
+					}
 				  ],
 				},
 				{
@@ -293,8 +341,49 @@ let config = {
 				}
 			  ]
 			},
-		  },		  
-		
+		  },	
+		  {
+			module: "MMM-Sounds",
+			classes: "intro",
+			config: {
+				startupSound: 'Intro_Audio.wav'
+			}
+		  }, 
+		  {
+			module: "MMM-Sounds",
+			classes: "p2",
+			config: {
+				startupSound: 'p2.wav'
+			}
+		  }, 
+		  {
+			module: "MMM-Sounds",
+			classes: "p3",
+			config: {
+				startupSound: 'p3.wav'
+			}
+		  }, 
+		  {
+			module: "MMM-Sounds",
+			classes: "p4",
+			config: {
+				startupSound: 'p4.wav'
+			}
+		  },
+		  {
+			module: "MMM-Sounds",
+			classes: "p5",
+			config: {
+				startupSound: 'p5.wav'
+			}
+		  },
+		  {
+			module: "MMM-Sounds",
+			classes: "outro",
+			config: {
+				startupSound: 'Outro.wav'
+			}
+		  },		
 	]
 };
 

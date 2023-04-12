@@ -34,3 +34,6 @@
 [submodule "modules/MMM-Keyboard"]
 	path = modules/MMM-Keyboard
 	url = https://github.com/lavolp3/MMM-Keyboard
+[submodule "modules/MMM-OnScreenMenu"]
+	path = modules/MMM-OnScreenMenu
+	url = https://github.com/shbatm/MMM-OnScreenMenu
