@@ -104,15 +104,17 @@ let config = {
 			disabled: false,
 			classes: "photo",
 			module: "MMM-Selfieshot",
-			config: {}
+			config: {
+				shootMessage: "Smile like a Cheshire cat!"
+			}
 		},
 		{
 			module: 'MMM-SimpleText',
-			classes: 'initial-text',
+			classes: 'intro-text',
 			position: 'bottom_center',
 			config: {
 				   text: {
-					 'value': 'Hello World!'
+					 'value': 'Hello there —— you seem lost.'
 				   },
 				   fontURL: {
 					 'value': 'Tahoma, Geneva, sans-serif'
@@ -128,6 +130,73 @@ let config = {
 				   }
 			   }
 	   },
+	   {
+		module: 'MMM-SimpleText',
+		classes: 'eatdrink-text',
+		position: 'bottom_center',
+		config: {
+			   text: {
+				 'value': 'You come across a table with a mysterious treat and a suspicious potion.'
+			   },
+			   fontURL: {
+				 'value': 'Tahoma, Geneva, sans-serif'
+			   },
+			   fontSize: {
+				 'value': 'xx-large'
+			   },
+			   fontStyle: {
+				 'value': 'italic'
+			   },
+			   color: {
+				 'value': '#FFFFFF'
+			   }
+		   }
+   		},
+		   {
+			module: 'MMM-SimpleText',
+			classes: 'castletea-text',
+			position: 'bottom_center',
+			config: {
+				   text: {
+					 'value': 'In the distance, you can hear the noises of the Mad Hatter’s tea party and you see the castle of the Red Queen.'
+				   },
+				   fontURL: {
+					 'value': 'Tahoma, Geneva, sans-serif'
+				   },
+				   fontSize: {
+					 'value': 'xx-large'
+				   },
+				   fontStyle: {
+					 'value': 'italic'
+				   },
+				   color: {
+					 'value': '#FFFFFF'
+				   }
+			   }
+			   },
+		{
+			module: 'MMM-SimpleText',
+			classes: 'outro-text',
+			position: 'bottom_center',
+			config: {
+				   text: {
+					 'value': 'Thank you for visiting our Wonderland. '
+				   },
+				   fontURL: {
+					 'value': 'Tahoma, Geneva, sans-serif'
+				   },
+				   fontSize: {
+					 'value': 'xx-large'
+				   },
+				   fontStyle: {
+					 'value': 'italic'
+				   },
+				   color: {
+					 'value': '#FFFFFF'
+				   }
+			   }
+			},
+
 	   {
 			module: 'MMM-SimpleText',
 			classes: 'email',
@@ -150,8 +219,97 @@ let config = {
 				  }
 			}
 	   },
+	   {
+		module: 'MMM-SimpleText',
+		classes: 'excellent-text',
+		position: 'bottom_center',
+		config: {
+			text: {
+				'value': 'Excellent choice!'
+			  },
+			  fontURL: {
+				'value': 'Tahoma, Geneva, sans-serif'
+			  },
+			  fontSize: {
+				'value': 'xx-large'
+			  },
+			  fontStyle: {
+				'value': 'italic'
+			  },
+			  color: {
+				'value': '#FFFFFF'
+			  }
+		}
+	   },
+	   {
+		module: 'MMM-SimpleText',
+		classes: 'splendid-text',
+		position: 'bottom_center',
+		config: {
+			text: {
+				'value': 'Splendid!'
+			  },
+			  fontURL: {
+				'value': 'Tahoma, Geneva, sans-serif'
+			  },
+			  fontSize: {
+				'value': 'xx-large'
+			  },
+			  fontStyle: {
+				'value': 'italic'
+			  },
+			  color: {
+				'value': '#FFFFFF'
+			  }
+		}
+	   },
+	   {
+		module: 'MMM-SimpleText',
+		classes: 'logo',
+		position: 'bottom_center',
+		config: {
+			text: {
+				'value': "Delta Gamma's Anchor Down the Rabbit Hole 2023"
+			  },
+			  fontURL: {
+				'value': 'Tahoma, Geneva, sans-serif'
+			  },
+			  fontSize: {
+				'value': 'xx-large'
+			  },
+			  fontStyle: {
+				'value': 'bold'
+			  },
+			  color: {
+				'value': '#FFFFFF'
+			  }
+		}
+	   },
+	   {
+		module: "MMM-SimpleLogo",
+		position: "middle_center",
+		classes: 'alice',
+		config: {
+			fileUrl: 'modules/MMM-SimpleLogo/public/alice.png',
+			width: '15%',
+			position: 'left',
+			text: '',
+		}
+		},
+		{
+			module: "MMM-SimpleLogo",
+			position: "middle_center",
+			classes: 'rabbit',
+			config: {
+				fileUrl: 'modules/MMM-SimpleLogo/public/rabbit.png',
+				width: '30%',
+				position: 'right',
+				text: '',
+			}
+			},
 	//    {
 	// 		module: 'MMM-Motion-Detection',
+	// 		classes: 'motion',
 	// 		config: {
 	// 			// force the use of a usb webcam on raspberry pi
 	// 			useUSBCam: true,
@@ -170,33 +328,34 @@ let config = {
 			module: 'MMM-pages',
 			config: {
 				modules:
-				[["menu", "email", "keybindings", "keyboard"], ["keyboard", "keybindings"], ["keyboard", "cheshire", "initial-text"], ["eat", "drink"], ["eat"], ["drink"], ["castle", "teaparty"], ["castle"], ["teaparty"],
-				["cheshire"]],
+				[["motion"], ["cheshire", "intro-text"], ["eat", "drink", "eatdrink-text", "first-choice"], 
+				["castle", "teaparty", "castletea-text", "second-choice"], ["cheshire", "outro-text", "photo"],
+				["photo", "alice", "rabbit", "logo"]],
 				// fixed: ["MMM-Sounds"],
 				hiddenPages: {
 					"cat": ["cheshire"],
-					"eatordrink": ["eat", "drink"],
-					"selecteat": ["eat"],
-					"selectdrink": ["drink"],
-					"castleortea": ["castle", "teaparty"],
-					"selectcastle": ["castle"],
-					"selecttea": ["teaparty"],
+					"excellent-eat": ["eat", "excellent-text"],
+					"excellent-drink": ["drink", "excellent-text"],
+					"splendid-castle": ["castle", "splendid-text"],
+					"splendid-tea": ["teaparty", "splendid-text"],
 				},
+				homePage: 1
 			}
 		},
 		// {
 		// 	module: 'MMM-Buttons',
+		// 	classes: 'first-choice',
 		// 	config: {
 		// 		buttons: [
 		// 			{
 		// 				pin: 25,
 		// 				name: "left",
 		// 				longPress: {
-		// 					notification: "LEFT",
+		// 					notification: "LEFT_FIRST",
 		// 					payload: {}
 		// 				},
 		// 				shortPress: {
-		// 					notification: "LEFT",
+		// 					notification: "LEFT_FIRST",
 		// 					payload: {}
 		// 				}
 		// 			},
@@ -204,11 +363,43 @@ let config = {
 		// 				pin: 24,
 		// 				name: "right",
 		// 				longPress: {
-		// 					notification: "RIGHT",
+		// 					notification: "RIGHT_FIRST",
 		// 					payload: {}
 		// 				},
 		// 				shortPress: {
-		// 					notification: "RIGHT",
+		// 					notification: "RIGHT_FIRST",
+		// 					payload: {}
+		// 				}
+		// 			}
+		// 		]
+		// 	}
+		// },
+		// {
+		// 	module: 'MMM-Buttons',
+		// 	classes: 'second-choice',
+		// 	config: {
+		// 		buttons: [
+		// 			{
+		// 				pin: 25,
+		// 				name: "left",
+		// 				longPress: {
+		// 					notification: "LEFT_SECOND",
+		// 					payload: {}
+		// 				},
+		// 				shortPress: {
+		// 					notification: "LEFT_SECOND",
+		// 					payload: {}
+		// 				}
+		// 			},
+		// 			{
+		// 				pin: 24,
+		// 				name: "right",
+		// 				longPress: {
+		// 					notification: "RIGHT_SECOND",
+		// 					payload: {}
+		// 				},
+		// 				shortPress: {
+		// 					notification: "RIGHT_SECOND",
 		// 					payload: {}
 		// 				}
 		// 			}
@@ -262,128 +453,391 @@ let config = {
 			  useWebhook: false, // If you want to activate webhook as Notification emitter, set true. (eg. IFTTT)
 			  triggers:[ // Array of triggers.
 				{
-				  trigger: "MAX_PAGES_CHANGED", //REQUIRED
-				//   triggerSenderFilter: (sender) => { //OPTIONAL should return true or false
-				// 	if (sender == "....") {
-				// 	  return true
-				// 	}
-				// 	return false
-				//   },
-				//   triggerPayloadFilter: (payload) => { //OPTIONAL should return true or false
-				// 	if (typeof payload.value !== 'undefined' && payload.value > 0) {
-				// 	  return true
-				// 	}
-				// 	return false
-				//   },
+				  //trigger: "motion-detected", //REQUIRED
+				  trigger: "MAX_PAGES_CHANGED",
 				  fires: [ // Array of fires. You can enable multi-firing with one trigger.
+					// {
+					// 	fire: "PAGE_INCREMENT"
+					// },
 					{
-					  fire: "asdjfajs",
-					  //fire: "SELFIE_SHOOT", //REQUIRED
-					  payload: (payload) => { //OPTIONAL. transform received payload to what your target module wants.
-						return {
+						fire: "PLAY_SOUND",
+						payload: (payload) => {
+							return {
+								sound: 'Intro_Audio.wav'
+							}
+						}
+					},
+					{
+						fire: "CHANGE", 
+						payload: (payload) => {
+							return {
+								txt: "Welcome to Delta Gamma’s Wonderland: Anchor Down the Rabbit Hole."
+							}
+						},
+						delay: 3000,
+					},
+					{
+						fire: "CHANGE", 
+						payload: (payload) => {
+							return {
+								txt: "As you go through your journey, you will have to make a series of decisions."
+							}
+						},
+						delay: 7500,
+					},
+					{
+						fire: "CHANGE", 
+						payload: (payload) => {
+							return {
+								txt: "Let your need guide your behavior."
+							}
+						},
+						delay: 11800,
+					},
+					{
+						fire: "PAGE_CHANGED",
+						payload: (payload) => {
+							return 2
+						},
+						delay: 14500,
+					},
+					// {
+					// 	fire: "CHANGE", 
+					// 	payload: (payload) => {
+					// 		return {
+					// 			txt: "You come across a table with a mysterious treat and a suspicious potion."
+					// 		}
+					// 	},
+					// 	delay: 14500,
+					// },
+				  ],
+				},
+				{
+					trigger: "NEW_PAGE",
+					triggerPayloadFilter: (payload) => { //OPTIONAL should return true or false
+						if (payload == 2) {
+						  return true
+						}
+						return false
+					  },
+					fires: [
+					{
+						fire: "PLAY_SOUND",
+						payload: (payload) => {
+							return {
+								sound: 'p2.wav'
+							}
+						}
+					},
+					{
+						fire: "CHANGE", 
+						payload: (payload) => {
+							return {
+								txt: "You come across a table with a mysterious treat and a suspicious potion."
+							}
+						},
+					},
+					{
+						fire: "CHANGE", 
+						payload: (payload) => {
+							return {
+								txt: "Do you want to eat the cake or drink the potion?"
+							}
+						},
+						delay: 4000,
+					},
+					{
+						fire: "CHANGE", 
+						payload: (payload) => {
+							return {
+								txt: "Use the left and right buttons to make your choice."
+							}
+						},
+						delay: 7000,
+					},
+				]
+				},
+				{
+					trigger: "NEW_PAGE",
+					triggerPayloadFilter: (payload) => { //OPTIONAL should return true or false
+						if (payload == 3) {
+						  return true
+						}
+						return false
+					  },
+					fires: [
+					{
+						fire: "PLAY_SOUND",
+						payload: (payload) => {
+							return {
+								sound: 'p3.wav'
+							}
+						}
+					},
+					{
+						fire: "CHANGE", 
+						payload: (payload) => {
+							return {
+								txt: "In the distance, you can hear the noises of the Mad Hatter’s tea party and you see the castle of the Red Queen."
+							}
+						},
+					},
+					{
+						fire: "CHANGE", 
+						payload: (payload) => {
+							return {
+								txt: "In which direction do you head?"
+							}
+						},
+						delay: 8000,
+					},
+					{
+						fire: "CHANGE", 
+						payload: (payload) => {
+							return {
+								txt: "Visit either one you like: they’re both mad."
+							}
+						},
+						delay: 10000,
+					},
+				]
+				},
+				{
+					trigger: "LEFT_FIRST",
+					fires: [
+						{
+							fire: "SHOW_HIDDEN_PAGE",
+							payload: (payload) => {
+								return "excellent-eat"
+							}
+						}, 
+						{
+							fire: "PLAY_SOUND",
+							payload: (payload) => {
+								return "excellent.wav"
+							}
+						}, 
+						{
+							fire: "PAGE_INCREMENT",
+							delay: 2000,
+						}
+					]
+				},
+				{
+					trigger: "RIGHT_FIRST",
+					fires: [
+						{
+							fire: "SHOW_HIDDEN_PAGE",
+							payload: (payload) => {
+								return "excellent-drink"
+							}
+						},
+						{
+							fire: "PLAY_SOUND",
+							payload: (payload) => {
+								return "excellent.wav"
+							}
+						},
+						{
+							fire: "PAGE_INCREMENT",
+							delay: 2000,
+						}
+					]
+				},
+				{
+					trigger: "LEFT_SECOND",
+					fires: [
+						{
+							fire: "SHOW_HIDDEN_PAGE",
+							payload: (payload) => {
+								return "splendid-castle"
+							}
+						}, 
+						{
+							fire: "PLAY_SOUND",
+							payload: (payload) => {
+								return "splendid.wav"
+							}
+						}, 
+						{
+							fire: "PAGE_INCREMENT",
+							delay: 2000,
+						}
+					]
+				},
+				{
+					trigger: "RIGHT_SECOND",
+					fires: [
+						{
+							fire: "SHOW_HIDDEN_PAGE",
+							payload: (payload) => {
+								return "splendid-tea"
+							}
+						},
+						{
+							fire: "PLAY_SOUND",
+							payload: (payload) => {
+								return "splendid.wav"
+							}
+						},
+						{
+							fire: "PAGE_INCREMENT",
+							delay: 2000,
+						}
+					]
+				},
+
+				{
+					trigger: "NEW_PAGE",
+					triggerPayloadFilter: (payload) => { //OPTIONAL should return true or false
+						if (payload == 4) {
+						  return true
+						}
+						return false
+					  },
+					fires: [
+					{
+						fire: "PLAY_SOUND",
+						payload: (payload) => {
+							return {
+								sound: 'p4.wav'
+							}
+						}
+					},
+					{
+						fire: "CHANGE", 
+						payload: (payload) => {
+							return {
+								txt: "I'd love to get a picture of you before you go."
+							}
+						},
+						delay: 2000,
+					},
+					{
+						fire: "CHANGE", 
+						payload: (payload) => {
+							return {
+								txt: "Get ready for your closeup!"
+							}
+						},
+						delay: 4700,
+					},
+					{
+						fire: "SELFIE_SHOOT",
+						payload: (payload) => {
+							return {
 							shootCountdown: 5,
 							displayResult: true,
 							playShutter: true,
 							displayCountdown: true,
 						  }
-					  },
-					  delay: 1000, //OPTIONAL, if this is set, your outgoing notification will be fired after delay.
-					//   exec: "ls -l" //OPTIONAL, if exists, this script will be executed, and the result will be returned with "OUTGOING_NOTIFICATION_RESULT" and payload.  Can also be specified as a function which accepts the payload as an argument and returns the command to execute.
-					},
+						},
+						delay: 7000,
+					}, 
 					{
-						fire: "KEYBOARD",
+						fire: "PAGE_CHANGED",
+						payload: (payload) => {
+							return 5
+						},
+						delay: 15000,
+					}
+				]
+				},
+				{
+					trigger: "NEW_PAGE",
+					triggerPayloadFilter: (payload) => { //OPTIONAL should return true or false
+						if (payload == 5) {
+						  return true
+						}
+						return false
+					  },
+					fires: [
+					{
+						fire: "PLAY_SOUND",
 						payload: (payload) => {
 							return {
-								key: "uniqueKey",
-								style: "default"
+								sound: 'Outro.wav'
+							}
+						}
+					},
+					{
+						fire: "CHANGE", 
+						payload: (payload) => {
+							return {
+								txt: "Delta Gamma Anchor Down the Rabbit Hole 2023"
 							}
 						},
-						delay: 500,
+						delay: 4700,
+					},
+					// {
+					// 	fire: "CHANGE", 
+					// 	payload: (payload) => {
+					// 		return {
+					// 			txt: "Now, there’ll be no time to play, no time for joy, no time for friends – not even time to make amends. "
+					// 		}
+					// 	},
+					// 	delay: 2700,
+					// },
+					// {
+					// 	fire: "CHANGE", 
+					// 	payload: (payload) => {
+					// 		return {
+					// 			txt: "Goodbye, sweet friend! "
+					// 		}
+					// 	},
+					// 	delay: 11700,
+					// },
+					{
+						fire: "HOME_PAGE",
+						delay: 13000,
 					}
-				  ],
+				]
 				},
-				{
-					trigger: "LEFT",
-					fires: [
-						{
-							fire: "PAGE_INCREMENT", 
-							payload: (payload) => {
-								return 1;
-							}
-						},
-						{
-							fire: "PAGE_INCREMENT",
-							payload: (payload) => {
-								return 2;
-							},
-							delay: 2000,
-						}
-					]
-				},
-				{
-					trigger: "RIGHT",
-					fires: [
-						{
-							fire: "PAGE_INCREMENT", 
-							payload: (payload) => {
-								return 2;
-							}
-						}, 
-						{
-							fire: "PAGE_INCREMENT",
-							payload: (payload) => {
-								return 1;
-							},
-							delay: 2000,
-						}
-
-					]
-				}
 			  ]
 			},
 		  },	
-		  {
-			module: "MMM-Sounds",
-			classes: "intro",
-			config: {
-				startupSound: 'Intro_Audio.wav'
-			}
-		  }, 
-		  {
-			module: "MMM-Sounds",
-			classes: "p2",
-			config: {
-				startupSound: 'p2.wav'
-			}
-		  }, 
-		  {
-			module: "MMM-Sounds",
-			classes: "p3",
-			config: {
-				startupSound: 'p3.wav'
-			}
-		  }, 
-		  {
-			module: "MMM-Sounds",
-			classes: "p4",
-			config: {
-				startupSound: 'p4.wav'
-			}
-		  },
-		  {
-			module: "MMM-Sounds",
-			classes: "p5",
-			config: {
-				startupSound: 'p5.wav'
-			}
-		  },
-		  {
-			module: "MMM-Sounds",
-			classes: "outro",
-			config: {
-				startupSound: 'Outro.wav'
-			}
-		  },		
+		//   {
+		// 	module: "MMM-Sounds",
+		// 	classes: "intro",
+		// 	config: {
+		// 		startupSound: 'Intro_Audio.wav'
+		// 	}
+		//   }, 
+		//   {
+		// 	module: "MMM-Sounds",
+		// 	classes: "p2",
+		// 	config: {
+		// 		startupSound: 'p2.wav'
+		// 	}
+		//   }, 
+		//   {
+		// 	module: "MMM-Sounds",
+		// 	classes: "p3",
+		// 	config: {
+		// 		startupSound: 'p3.wav'
+		// 	}
+		//   }, 
+		//   {
+		// 	module: "MMM-Sounds",
+		// 	classes: "p4",
+		// 	config: {
+		// 		startupSound: 'p4.wav'
+		// 	}
+		//   },
+		//   {
+		// 	module: "MMM-Sounds",
+		// 	classes: "p5",
+		// 	config: {
+		// 		startupSound: 'p5.wav'
+		// 	}
+		//   },
+		//   {
+		// 	module: "MMM-Sounds",
+		// 	classes: "outro",
+		// 	config: {
+		// 		startupSound: 'Outro.wav'
+		// 	}
+		//   },		
 	]
 };
 
